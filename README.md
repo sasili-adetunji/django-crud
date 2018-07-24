@@ -15,7 +15,8 @@ The functionality of this web app depends on the following technologies.
 ### Installation
 - Download or clone the app on your local machine
 - Move into local directory cd into the directory
-- Activate virtaul environment
+- Activate virtual environment
+- Copy `env-sample` file and create your own `.env` file from it
 - Run `pip install -r requirements.txt`
 - Run `python manage.py makemigrations`
 - Run `python manage.py migrate`
