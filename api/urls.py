@@ -11,7 +11,6 @@ from .views import (
 router = DefaultRouter()
 
 router.register('profile', UserProfileViewSet)
-# router.register('login', LoginViewSet, base_name='login')  # needs basename coz its not model viewsets
 
 urlpatterns = [
     url(r'', include(router.urls)),
