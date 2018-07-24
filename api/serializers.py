@@ -12,16 +12,11 @@ class UserSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = UserProfile
-        fields = ('id', 'email', 'username', 'password')
-
-        read_only_fields = (
-            'created_on',
-        )
+        fields = ('id', 'email', 'name')
 
         extra_kwargs = {
-            'password': {'write_only': True, 'required': True},
-            'username': {'required': True},
             'email': {'required': True},
+            'username': {'required': True }
         }
 
     def create(self, validated_data):
@@ -32,11 +27,8 @@ class UserSerializer(serializers.ModelSerializer):
         """
         user = UserProfile(
             email=validated_data['email'],
-            username=validated_data['username'],
             name=validated_data['name']
         )
-
-        user.set_password(validated_data['password'])
         user.save()
 
         return user
